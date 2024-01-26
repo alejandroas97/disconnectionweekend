@@ -20,7 +20,7 @@ const logoUrl = computed(() => {
 
 
 async function login(){
-    if (email.value == "0" && password == '0') {
+    if (email.value == 0 && password.value == 40) {
         try {
             const token="login-okay"
             localStorage.setItem('token', token);
@@ -29,8 +29,7 @@ async function login(){
         console.error('Error durante el inicio de sesión:', error);
       }
     } else {
-        console.log('error en login')
-        toast.add({ severity: 'error', summary: 'Login incorrecto', detail: 'Inténtalo de nuevo', life: 3000 });
+        toast.add({ severity: 'error', summary: 'Respuesta incorrecta', detail: 'Inténtalo de nuevo', life: 3000 });
     }
 }
 
@@ -41,7 +40,6 @@ async function login(){
 <template>
     <div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
         <div class="flex flex-column align-items-center justify-content-center">
-            <img :src="logoUrl" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0" />
             <div style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%)">
                 <Toast />
                 <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
@@ -53,10 +51,12 @@ async function login(){
                     <div class="mx-auto text-wrap text-center mb-4 textAc">
                         MUCHAS FELICIDADES <br>
 
-                        Si has llegado hasta aquí es porque has seguido seguir viva un año más, enhorabuena. <br>
+                        Si has llegado hasta aquí es porque has conseguido seguir viva un año más, enhorabuena. <br>
                     </div>
                     <div class="mx-auto text-wrap text-center mb-4 textAc">
                         Tu regalo de cumpleaños va a tener que esperar un poco todavía.
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
                         <ProgressBar :value="14"></ProgressBar>
                     </div>
                     <div class="mx-auto text-wrap text-center mb-4 textAc">
@@ -88,26 +88,20 @@ async function login(){
                                 ¿Cuántos animales llevó Moisés en el arca?
                             </div>
                         </label>
-                        <InputNumber v-model="value1" inputId="integeronly" />
-                        <InputText id="email1" type="text" placeholder="Introduce un número" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="email" />
-
-                        <label for="password1" class="block text-900 font-medium text-xl mb-2">Contraseña</label>
-                        <Password id="password1" v-model="password" placeholder="Password" :toggleMask="true" class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
-
-                        <div class="flex align-items-center justify-content-between mb-5 gap-5">
-                            <div class="flex align-items-center">
-                                <Checkbox v-model="checked" id="rememberme1" binary class="mr-2"></Checkbox>
-                                <label for="rememberme1">Remember me</label>
+                        <InputText id="email1" type="number" placeholder="Introduce un número" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="email" />
+                        
+                        <label for="password" class="block text-900 text-xl font-medium mb-2">
+                            <div class="mx-auto text-wrap text-center mb-4 textAc">
+                                Se trata de indicar qué número falta tras ver estas operaciones. <br> 1+4=5 2+5=12 3+6=21 8+11=¿?
                             </div>
-                            <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a>
-                        </div>
-                        <Button label="Sign In" class="w-full p-3 text-xl" @click="login()"></Button>
+                        </label>
+                        <InputText id="password" type="number" placeholder="Introduce un número" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="password" />
+                        <Button label="Listo" class="w-full p-3 text-xl" @click="login()"></Button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <AppConfig simple />
 </template>
 
 <style scoped>
@@ -122,6 +116,6 @@ async function login(){
 }
 
 .textAc {
-    width: 18rem;
+    width: 20rem;
 }
 </style>
