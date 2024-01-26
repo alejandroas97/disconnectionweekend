@@ -122,6 +122,6 @@ async function login(){
 }
 
 .textAc {
-    width: 20rem;
+    width: 18rem;
 }
 </style>
