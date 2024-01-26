@@ -44,11 +44,13 @@ async function login(){
                 <Toast />
                 <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
                     <div class="text-center mb-5">
-                        <img src="/demo/images/login/avatar.png" alt="Image" height="50" class="mb-3" />
+                        <img src="/demo/images/login/cindi.jpg" alt="Image" height="150" class="mb-5 img-fluid rounded-circle" style="transform: rotate(90deg); border-radius: 100%;"/>
                         <div class="text-900 text-3xl font-medium mb-3">Holaaaa, Cindiiii!</div>
                     </div>
 
-                    <!-- <p> Si has llegado hasta aquí es porque has seguido correctamente las instrucciones</p> -->
+                    <div class="text-wrap text-center mb-6" style="width: 30rem;">
+                        Si has llegado hasta aquí es porque has seguido correctamente las instrucciones
+                    </div>
 
                     <div>
                         <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
