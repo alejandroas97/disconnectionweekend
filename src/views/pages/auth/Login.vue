@@ -4,6 +4,8 @@ import { ref, computed } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
 import router from '@/router';
 import { useToast } from 'primevue/usetoast';
+import ProgressBar from 'primevue/progressbar';
+import InputNumber from 'primevue/inputnumber';
 
 const { layoutConfig } = useLayout();
 const email = ref('');
@@ -18,7 +20,7 @@ const logoUrl = computed(() => {
 
 
 async function login(){
-    if (email.value == "cintiaquintanarm@gmail.com") {
+    if (email.value == "0" && password == '0') {
         try {
             const token="login-okay"
             localStorage.setItem('token', token);
@@ -48,13 +50,46 @@ async function login(){
                         <div class="text-900 text-3xl font-medium mb-3">Holaaaa, Cindiiii!</div>
                     </div>
 
-                    <div class="text-wrap text-center mb-6" style="width: 30rem;">
-                        Si has llegado hasta aquí es porque has seguido correctamente las instrucciones
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        MUCHAS FELICIDADES <br>
+
+                        Si has llegado hasta aquí es porque has seguido seguir viva un año más, enhorabuena. <br>
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        Tu regalo de cumpleaños va a tener que esperar un poco todavía.
+                        <ProgressBar :value="14"></ProgressBar>
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        Han sido unos meses bastante complicados. Obras interminables, entre quitar y poner azulejos con mínimos
+                        desperfectos, puertas que parecían no ponerse rectas nunca, y pinturas que no querían pegarse al techo.
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        Ya toca parar, salir de casa y desconectar unos días.
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        Pero, ¿a dónde?¿Qué vamos a hacer?
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        Buena pregunta.
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        Para saber más, vas a tener que ir pasando una serie de retos con los que,
+                        día a día, irás descubriendo de qué se trata.
+                    </div>
+                    <div class="mx-auto text-wrap text-center mb-4 textAc">
+                        Empecemos desvelando la fecha. Para ello necesitarás resolver estos sencillos (a priori)
+                        acertijos.
                     </div>
 
+
                     <div>
-                        <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
-                        <InputText id="email1" type="text" placeholder="Email address" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="email" />
+                        <label for="email1" class="block text-900 text-xl font-medium mb-2">
+                            <div class="mx-auto text-wrap text-center mb-4 textAc">
+                                ¿Cuántos animales llevó Moisés en el arca?
+                            </div>
+                        </label>
+                        <InputNumber v-model="value1" inputId="integeronly" />
+                        <InputText id="email1" type="text" placeholder="Introduce un número" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="email" />
 
                         <label for="password1" class="block text-900 font-medium text-xl mb-2">Contraseña</label>
                         <Password id="password1" v-model="password" placeholder="Password" :toggleMask="true" class="w-full mb-3" inputClass="w-full" :inputStyle="{ padding: '1rem' }"></Password>
@@ -84,5 +119,9 @@ async function login(){
 .pi-eye-slash {
     transform: scale(1.6);
     margin-right: 1rem;
+}
+
+.textAc {
+    width: 20rem;
 }
 </style>
