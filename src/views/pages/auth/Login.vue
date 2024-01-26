@@ -2,11 +2,14 @@
 import { useLayout } from '@/layout/composables/layout';
 import { ref, computed } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
+import router from '@/router';
+import { useToast } from 'primevue/usetoast';
 
 const { layoutConfig } = useLayout();
 const email = ref('');
 const password = ref('');
 const checked = ref(false);
+const toast = useToast();
 
 const logoUrl = computed(() => {
     return `layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
@@ -14,11 +17,22 @@ const logoUrl = computed(() => {
 
 
 
-function login(){
+async function login(){
     if (email.value == "cintiaquintanarm@gmail.com") {
-        console.log('hola')
+        try {
+            const token="login-okay"
+            localStorage.setItem('token', token);
+            await router.push('/landing'); // Ajusta la ruta según tus necesidades
+      } catch (error) {
+        console.error('Error durante el inicio de sesión:', error);
+      }
+    } else {
+        console.log('error en login')
+        toast.add({ severity: 'error', summary: 'Login incorrecto', detail: 'Inténtalo de nuevo', life: 3000 });
     }
 }
+
+
 
 </script>
 
@@ -27,11 +41,14 @@ function login(){
         <div class="flex flex-column align-items-center justify-content-center">
             <img :src="logoUrl" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0" />
             <div style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%)">
+                <Toast />
                 <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
                     <div class="text-center mb-5">
                         <img src="/demo/images/login/avatar.png" alt="Image" height="50" class="mb-3" />
                         <div class="text-900 text-3xl font-medium mb-3">Holaaaa, Cindiiii!</div>
                     </div>
+
+                    <p> Si has llegado hasta aquí es porque has seguido correctamente las instrucciones</p>
 
                     <div>
                         <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>

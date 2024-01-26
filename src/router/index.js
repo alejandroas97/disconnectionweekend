@@ -9,9 +9,13 @@ const router = createRouter({
             component: AppLayout,
             children: [
                 {
-                    path: '/',
+                    path: '/dashboard',
                     name: 'dashboard',
                     component: () => import('@/views/Dashboard.vue')
+                },
+                {
+                    path: '/',
+                    redirect: '/auth/login',
                 },
                 {
                     path: '/uikit/formlayout',
@@ -146,6 +150,7 @@ const router = createRouter({
         {
             path: '/landing',
             name: 'landing',
+            meta: { requiresAuth: true },
             component: () => import('@/views/pages/Landing.vue')
         },
         {
@@ -171,5 +176,17 @@ const router = createRouter({
         }
     ]
 });
+
+router.beforeEach((to, from, next) => {
+    const isAuthenticated = !!localStorage.getItem('token');
+  
+    if (to.meta.requiresAuth && !isAuthenticated) {
+      // Si la ruta requiere autenticación y el usuario no está autenticado, redirigir al inicio de sesión
+      next('/auth/login');
+    } else {
+      // Permitir el acceso a la ruta
+      next();
+    }
+  });
 
 export default router;
