@@ -48,7 +48,7 @@ async function login(){
                         <div class="text-900 text-3xl font-medium mb-3">Holaaaa, Cindiiii!</div>
                     </div>
 
-                    <p> Si has llegado hasta aquí es porque has seguido correctamente las instrucciones</p>
+                    <!-- <p> Si has llegado hasta aquí es porque has seguido correctamente las instrucciones</p> -->
 
                     <div>
                         <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
