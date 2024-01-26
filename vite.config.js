@@ -12,6 +12,6 @@ export default defineConfig(() => {
                 '@': fileURLToPath(new URL('./src', import.meta.url))
             }
         },
-        base: "/disconnection-weekend/"
+        base: "https://alejandroas97.github.io/disconnectionweekend/"
     };
 });
