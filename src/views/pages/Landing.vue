@@ -1,6 +1,6 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
 
 const { layoutConfig } = useLayout();
@@ -18,6 +18,11 @@ const redirectToAnotherPage = () => {
 
 const logoUrl = computed(() => {
     return `layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-dark'}.svg`;
+});
+
+onMounted(() => {
+    // Scroll a la parte superior cuando el componente está montado
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
 
