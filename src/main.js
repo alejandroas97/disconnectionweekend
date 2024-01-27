@@ -209,4 +209,25 @@ app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
 
+// Al iniciar sesión
+
+// Temporizador para eliminar variables después de cierto tiempo
+const duracionMaximaSesion = 1 * 60 * 1000; // 30 minutos en milisegundos
+
+setInterval(() => {
+    console.log('mirando');
+  const tiempoInicioSesion = localStorage.getItem('tiempoInicioSesion');
+
+  if (tiempoInicioSesion) {
+    const tiempoTranscurrido = new Date().getTime() - parseInt(tiempoInicioSesion, 10);
+
+    if (tiempoTranscurrido > duracionMaximaSesion) {
+      // La sesión ha expirado, eliminar variables
+      localStorage.removeItem('tiempoInicioSesion');
+      // Puedes agregar otras variables que desees eliminar aquí
+    }
+  }
+}, 60000); // Verificar cada minuto (ajusta según sea necesario)
+
+
 app.mount('#app');

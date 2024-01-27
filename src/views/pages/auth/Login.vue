@@ -23,7 +23,8 @@ async function login(){
     if (email.value == 0 && password.value == 40) {
         try {
             const token="login-okay"
-            localStorage.setItem('token', token);
+            const ahora = new Date();
+            localStorage.setItem('tiempoInicioSesion', ahora.getTime().toString()); 
             await router.push('/landing'); // Ajusta la ruta según tus necesidades
       } catch (error) {
         console.error('Error durante el inicio de sesión:', error);
@@ -32,6 +33,26 @@ async function login(){
         toast.add({ severity: 'error', summary: 'Respuesta incorrecta', detail: 'Inténtalo de nuevo', life: 3000 });
     }
 }
+
+// Al iniciar sesión
+
+// Temporizador para eliminar variables después de cierto tiempo
+const duracionMaximaSesion = 1 * 60 * 1000; // 30 minutos en milisegundos
+
+setInterval(() => {
+    console.log('mirando');
+  const tiempoInicioSesion = localStorage.getItem('tiempoInicioSesion');
+
+  if (tiempoInicioSesion) {
+    const tiempoTranscurrido = new Date().getTime() - parseInt(tiempoInicioSesion, 10);
+
+    if (tiempoTranscurrido > duracionMaximaSesion) {
+      // La sesión ha expirado, eliminar variables
+      localStorage.removeItem('tiempoInicioSesion');
+      // Puedes agregar otras variables que desees eliminar aquí
+    }
+  }
+}, 60000); // Verificar cada minuto (ajusta según sea necesario)
 
 
 

@@ -178,7 +178,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const isAuthenticated = !!localStorage.getItem('token');
+    const isAuthenticated = !!localStorage.getItem('tiempoInicioSesion');
   
     if (to.meta.requiresAuth && !isAuthenticated) {
       // Si la ruta requiere autenticación y el usuario no está autenticado, redirigir al inicio de sesión

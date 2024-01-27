@@ -13,7 +13,7 @@ const smoothScroll = (id) => {
 
 const redirectToAnotherPage = () => {
     
-      window.location.href = 'https://www.google.com/calendar/render?action=TEMPLATE&text=Disconnection+Weekend&dates=20240202T000000Z/20240204T000000Z&details=Fin+de+semana+de+desconexión'
+      window.location.href = 'https://www.google.com/calendar/render?action=TEMPLATE&text=Disconnection+Weekend&dates=20240202T160000Z/20240204T220000Z&details=Recuerda+bien+esta+fecha+y+prepárate+para+pasar+un+súper+finde.+Próximamente+más+info.&sf=true&output=xml'
 };
 
 const logoUrl = computed(() => {
