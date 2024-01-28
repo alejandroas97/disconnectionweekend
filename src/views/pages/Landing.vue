@@ -43,7 +43,7 @@ onMounted(() => {
                     <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Aquí tienes una ubicación (aproximada) del súper finde</p>
                 </div>
                 <div class="flex justify-content-center">
-                    <img src="/demo/images/landing/canary_map.png" alt="Hero Image" height="150" class="mb-5 img-fluid" />
+                    <img src="/demo/images/landing/canary_map.png" alt="Hero Image" height="100" class="mb-5 img-fluid" />
                     <!-- <Image src="/demo/images/landing/canary_map.png" alt="Image" width="400"/> -->
                 </div>
             </div>
