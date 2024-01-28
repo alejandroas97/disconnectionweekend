@@ -10,6 +10,7 @@ import InputNumber from 'primevue/inputnumber';
 const { layoutConfig } = useLayout();
 const email = ref('');
 const password = ref('');
+const password2 = ref('');
 const checked = ref(false);
 const toast = useToast();
 
@@ -20,7 +21,7 @@ const logoUrl = computed(() => {
 
 
 async function login(){
-    if (email.value == 0 && password.value == 40) {
+    if (email.value == 45 && password.value == 28 && password2.value == 21104) {
         try {
             const token="login-okay"
             const ahora = new Date();
@@ -34,10 +35,7 @@ async function login(){
     }
 }
 
-// Al iniciar sesión
-
-// Temporizador para eliminar variables después de cierto tiempo
-const duracionMaximaSesion = 1 * 60 * 1000; // 30 minutos en milisegundos
+const duracionMaximaSesion = 10 * 60 * 1000; // 30 minutos en milisegundos
 
 setInterval(() => {
     console.log('mirando');
@@ -47,9 +45,9 @@ setInterval(() => {
     const tiempoTranscurrido = new Date().getTime() - parseInt(tiempoInicioSesion, 10);
 
     if (tiempoTranscurrido > duracionMaximaSesion) {
-      // La sesión ha expirado, eliminar variables
+
       localStorage.removeItem('tiempoInicioSesion');
-      // Puedes agregar otras variables que desees eliminar aquí
+
     }
   }
 }, 60000); // Verificar cada minuto (ajusta según sea necesario)
@@ -70,53 +68,44 @@ setInterval(() => {
                     </div>
 
                     <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        MUCHAS FELICIDADES <br>
+                        Enhorabuena, has completado el primer reto <br>
+                    </div>
 
-                        Si has llegado hasta aquí es porque has conseguido seguir viva un año más, enhorabuena. <br>
-                    </div>
                     <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        Tu regalo de cumpleaños va a tener que esperar un poco todavía.
+                        <ProgressBar :value="29"></ProgressBar>
                     </div>
+
                     <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        <ProgressBar :value="14"></ProgressBar>
-                    </div>
-                    <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        Han sido unos meses bastante complicados. Obras interminables, entre quitar y poner azulejos con mínimos
-                        desperfectos, puertas que parecían no ponerse rectas nunca, y pinturas que no querían pegarse al techo.
-                    </div>
-                    <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        Ya toca parar, salir de casa y desconectar unos días.
-                    </div>
-                    <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        Pero, ¿a dónde?¿Qué vamos a hacer?
-                    </div>
-                    <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        Buena pregunta.
-                    </div>
-                    <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        Para saber más, vas a tener que ir pasando una serie de retos con los que,
-                        día a día, irás descubriendo de qué se trata.
-                    </div>
-                    <div class="mx-auto text-wrap text-center mb-4 textAc">
-                        Empecemos desvelando la fecha. Para ello necesitarás resolver estos sencillos (a priori)
-                        acertijos.
+                        Ahora tocará saber un poco más sobre la ubicación de las actividades que 
+                        acontecerán en el fin de semana del 2 al 4 de febrero de 2024
                     </div>
 
 
                     <div>
                         <label for="email1" class="block text-900 text-xl font-medium mb-2">
                             <div class="mx-auto text-wrap text-center mb-4 textAc">
-                                ¿Cuántos animales llevó Moisés en el arca?
+                                Si un triángulo tiene un ángulo de 90 grados y otro ángulo de 45 grados, ¿cuántos grados tiene el tercer ángulo?
                             </div>
                         </label>
                         <InputText id="email1" type="number" placeholder="Introduce un número" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="email" />
                         
                         <label for="password" class="block text-900 text-xl font-medium mb-2">
                             <div class="mx-auto text-wrap text-center mb-4 textAc">
-                                Se trata de indicar qué número falta tras ver estas operaciones. <br> 1+4=5 2+5=12 3+6=21 8+11=¿?
+                                ¿Qué número corresponde para seguir la serie? <br> 1, 3, 6, 10, 15, 21 …
                             </div>
                         </label>
                         <InputText id="password" type="number" placeholder="Introduce un número" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="password" />
+
+                        <label for="password2" class="block text-900 text-xl font-medium mb-2">
+                            <div class="mx-auto text-wrap text-center mb-4 textAc">
+                                De acuerdo con las siguientes ecuaciones, tienes que adivinar cuál es la respuesta para la cuarta ecuación. 
+                                <br> 8 + 2 = 16106
+                                <br> 5 + 4 = 2091
+                                <br> 9 + 6 = 54153
+                                <br> 7 + 3 = ?
+                            </div>
+                        </label>
+                        <InputText id="password2" type="number" placeholder="Introduce un número" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="password2" />
                         <Button label="Listo" class="w-full p-3 text-xl" @click="login()"></Button>
                     </div>
                 </div>

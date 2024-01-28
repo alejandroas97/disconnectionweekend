@@ -215,7 +215,6 @@ app.component('VirtualScroller', VirtualScroller);
 const duracionMaximaSesion = 1 * 60 * 1000; // 30 minutos en milisegundos
 
 setInterval(() => {
-    console.log('mirando');
   const tiempoInicioSesion = localStorage.getItem('tiempoInicioSesion');
 
   if (tiempoInicioSesion) {
