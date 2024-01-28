@@ -42,9 +42,9 @@ onMounted(() => {
                     <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Enhorabuena!!</span>Has pasado el segundo reto</h1>
                     <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Aquí tienes una ubicación (aproximada) del súper finde</p>
                 </div>
-                <div class="flex justify-content-center md:justify-content-end">
-                    <!-- <img src="/demo/images/landing/canary_map.png" alt="Hero Image" height="300" class="w-9 md:w-auto" /> -->
-                    <Image src="/demo/images/landing/canary_map.png" alt="Image" width="400"/>
+                <div class="flex justify-content-center">
+                    <img src="/demo/images/landing/canary_map.png" alt="Hero Image" height="150" class="mb-5 img-fluid" />
+                    <!-- <Image src="/demo/images/landing/canary_map.png" alt="Image" width="400"/> -->
                 </div>
             </div>
 
